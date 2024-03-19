@@ -43,6 +43,30 @@ namespace dot_back.Controllers
             var createdTodoItem = await _todoItemService.CreateTodoItemAsync(todoItem);
             return CreatedAtAction(nameof(GetTodoItem), new { id = createdTodoItem.Id }, createdTodoItem);
         }
+
+        [HttpPut("{id}")]
+
+        public async Task<IActionResult> UpdateTodoItemAsync(int id, TodoItem todoItem)
+        {
+            try 
+            {
+                await _todoItemService.UpdateTodoItemAsync(id, todoItem);
+                return NoContent();
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, $"An error occured while updating : {ex.Message}");
+            }
+        }
+
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteTodoItem(int id)
+        {
+            await _todoItemService.DeleteTodoItemAsync(id);
+
+            return NoContent();
+        }
     }
 }
 

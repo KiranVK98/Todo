@@ -31,9 +31,19 @@ public class TodoItemService : ITodoItemService
         return todoItem;
     }
 
-    public async Task UpdateTodoItemAsync(TodoItem todoItem)
+    public async Task UpdateTodoItemAsync(int id, TodoItem todoItem)
     {
-        _context.Entry(todoItem).State = EntityState.Modified;
+        var existingItem = await _context.TodoItems.FindAsync(id);
+        if( existingItem == null)
+        {
+            throw new Exception("Todo item not found");
+        }
+
+        existingItem.Title = todoItem.Title;
+        existingItem.Description = todoItem.Description;
+        existingItem.DueDate = todoItem.DueDate;
+        existingItem.IsCompleted = todoItem.IsCompleted;
+
         await _context.SaveChangesAsync();
     }
 

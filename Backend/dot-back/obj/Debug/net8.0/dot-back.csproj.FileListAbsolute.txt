@@ -134,3 +134,4 @@
 /Users/kirankulkarni/Desktop/dotnetproj/Todo/Backend/dot-back/obj/Debug/net8.0/dot-back.pdb
 /Users/kirankulkarni/Desktop/dotnetproj/Todo/Backend/dot-back/obj/Debug/net8.0/dot-back.genruntimeconfig.cache
 /Users/kirankulkarni/Desktop/dotnetproj/Todo/Backend/dot-back/obj/Debug/net8.0/ref/dot-back.dll
+/Users/kirankulkarni/Desktop/dotnetproj/Todo/Backend/dot-back/obj/Debug/net8.0/dot-back.sourcelink.json
