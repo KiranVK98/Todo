@@ -16,7 +16,6 @@ export class TodoService {
 
   private getHttpClient() : HttpClient {
     const http = this.injector.get(HttpClient);
-    console.log('http retreived', http);
     return http;
   }
   //GET ALL TODOS

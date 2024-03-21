@@ -14,5 +14,9 @@ const routes: Routes = [
     { path: 'create-todo', component: CreateTodoComponent}
 ]
 
+@NgModule({
+    imports: [RouterModule.forRoot(routes)], // Configure for root
+    exports: [RouterModule]
+  })
 
-export default routes;
+export class Approute {}
