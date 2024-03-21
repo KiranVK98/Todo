@@ -3,6 +3,8 @@ import { TodoListComponent } from "./todo-list/todo-list.component";
 import { TodoDetailComponent } from "./todo-detail/todo-detail.component";
 import { CreateTodoComponent } from "./create-todo/create-todo.component";
 import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from "@angular/forms";
 
 
 const routes: Routes = [
@@ -13,10 +15,4 @@ const routes: Routes = [
 ]
 
 
-
-@NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
-})
-
-export class AppRoutingModule {}
+export default routes;
