@@ -11,7 +11,9 @@ builder.Services.AddCors(options =>
         builder.WithOrigins("http://localhost:4200"); // Your Angular application domain
 
         // Allow specific methods (GET, POST, etc.)
-        builder.WithMethods("GET", "POST", "PUT", "DELETE");
+        builder.AllowAnyMethod();
+
+        builder.AllowAnyHeader();
 
         // Allow specific headers (optional)
         // builder.WithHeaders("Content-Type", "Authorization");
