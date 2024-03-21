@@ -3,6 +3,21 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("MyPolicy", builder =>
+    {
+        // Allow requests from specific origins (replace with your allowed origins)
+        builder.WithOrigins("http://localhost:4200"); // Your Angular application domain
+
+        // Allow specific methods (GET, POST, etc.)
+        builder.WithMethods("GET", "POST", "PUT", "DELETE");
+
+        // Allow specific headers (optional)
+        // builder.WithHeaders("Content-Type", "Authorization");
+    });
+});
+
 // Add services to the container.
 builder.Services.AddScoped<ITodoItemService, TodoItemService>();
 
@@ -31,6 +46,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseCors("MyPolicy");
 
 app.MapControllerRoute(
     name: "default",
