@@ -1,0 +1,36 @@
+.todo-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Set container height to full viewport height */
+  }
+  
+  .todo-details {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Set width of the card */
+  }
+  
+  .todo-details h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .todo-details p {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .todo-details .completed {
+    font-weight: bold;
+    color: #008000;
+  }
+  
+  .todo-details .not-completed {
+    font-weight: bold;
+    color: #ff0000;
+  }
+  

@@ -1,1 +1,15 @@
 <p>todo-detail works!</p>
+
+<div *ngIf = "isLoading" class = "loading-message">Loading</div>
+
+<div *ngIf = "errorMessage" class = "error-message">{{ errorMessage }}</div>
+
+
+<div *ngIf = "!isLoading && !errorMessage && todo" class = "todo-details-container">
+    <div class="todo-details">
+        <h2>{{ todo.title }}</h2>
+        <p>Description {{ todo.description }}</p>
+        <p>Date: {{ todo.dueDate }}</p>
+        <p>Completed : {{ getCompletedStatus(todo.isCompleted) }}</p>
+    </div>
+</div>

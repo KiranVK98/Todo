@@ -8,6 +8,7 @@
         <li *ngFor="let todo of todos">
           <span>{{ todo.title }}</span>
           <button (click)="onDelete(todo.id)">Delete</button>
+          <button (click)="onViewDetail(todo.id)">View Detail</button> <!-- Button for detail view -->
         </li>
       </ul>
   
