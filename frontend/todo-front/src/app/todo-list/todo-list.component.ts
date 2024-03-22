@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../todo.service';
 import { Todo } from '../Itodo';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todo-list',
@@ -13,7 +14,10 @@ export class TodoListComponent implements OnInit {
   todos!: Todo[];
   errorMessage: string = '';
   isLoading: boolean = false; // Initialize isLoading property
-  constructor(private todoService: TodoService) {}
+  constructor(
+      private todoService: TodoService,
+      private router: Router
+      ) {}
 
   ngOnInit(): void {
     this.getTodos();
@@ -50,6 +54,10 @@ export class TodoListComponent implements OnInit {
           this.errorMessage = 'Error Deleting todo, please try again later';
         }
   });
+  }
+
+  onViewDetail(todoId : number) : void {
+    this.router.navigate(['/todos', todoId]);
   }
 
 }
