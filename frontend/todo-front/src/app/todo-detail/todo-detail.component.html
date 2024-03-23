@@ -7,9 +7,39 @@
 
 <div *ngIf = "!isLoading && !errorMessage && todo" class = "todo-details-container">
     <div class="todo-details">
-        <h2>{{ todo.title }}</h2>
+        <h2>Task - {{ todo.title }}</h2>
         <p>Description {{ todo.description }}</p>
-        <p>Date: {{ todo.dueDate }}</p>
+        <p>Date: {{ formattedDueDate }}</p>
         <p>Completed : {{ getCompletedStatus(todo.isCompleted) }}</p>
+        <button (click) = "toggleEditMode()">Edit</button>
     </div>
 </div>
+
+<div *ngIf="editMode">
+    <h2>Edit Todo</h2>
+    <form (ngSubmit)="saveChanges()">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput [(ngModel)]="todo.title" name="title" required>
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput [(ngModel)]="todo.description" name="description"></textarea>
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Due Date</mat-label>
+        <input matInput [matDatepicker]="dueDatePicker" [(ngModel)]="todo.dueDate" name="dueDate">
+        <mat-datepicker-toggle matSuffix [for]="dueDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #dueDatePicker></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-checkbox [(ngModel)]="todo.isCompleted" name="completed">Completed</mat-checkbox><br>
+      
+      <button mat-raised-button color="primary" type="submit">Save</button>
+      <button mat-raised-button color="warn" type="button" (click)="toggleEditMode()">Cancel</button>
+    </form>
+  </div>
+  
+  
