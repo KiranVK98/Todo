@@ -13,7 +13,18 @@ import { TodoDetailComponent } from './app/todo-detail/todo-detail.component';
 
 //import service
 import { TodoService } from './app/todo.service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
+
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -27,9 +38,20 @@ import { CommonModule } from '@angular/common';
       BrowserModule,
       HttpClientModule, // Import for HTTP requests
       RouterModule, // Import for routing
-      Approute // Import your routing module for specific routes
+      Approute, // Import your routing module for specific routes
+      MatInputModule,
+      MatCheckboxModule,
+      MatButtonModule,
+      MatFormFieldModule,
+      MatDatepickerModule,
+      FormsModule,
+      MatNativeDateModule
     ],
-    providers: [TodoService], // Provide TodoService for dependency injection
+    providers: [
+        TodoService, 
+        provideAnimationsAsync(),
+        DatePipe
+      ], // Provide TodoService for dependency injection
     bootstrap: [AppComponent] // Bootstrap the main AppComponent
   })
   export class AppModule {}
