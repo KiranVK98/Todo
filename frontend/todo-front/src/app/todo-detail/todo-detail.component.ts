@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../Itodo';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TodoService } from '../todo.service';
 import { DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
@@ -23,7 +23,8 @@ export class TodoDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private todoService: TodoService,
     private dataPipe: DatePipe,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router : Router
   ) {}
 
   ngOnInit(): void {
@@ -70,7 +71,9 @@ export class TodoDetailComponent implements OnInit {
 
   openEditDialog() : void {
     const dialogRef = this.dialog.open(TodoeditComponent, {
-      width : '500px',
+      width: '30%',
+      height : '50%',
+      panelClass : 'vertical-dialog',
       data : {todo : this.todo}
     });
 
@@ -100,5 +103,10 @@ export class TodoDetailComponent implements OnInit {
           }
         });
     }
+  }
+
+  // to go back to home page
+  goBack() : void {
+    this.router.navigate(['/']);
   }
 }

@@ -11,7 +11,8 @@
         <p>Description {{ todo.description }}</p>
         <p>Date: {{ formattedDueDate }}</p>
         <p>Completed : {{ getCompletedStatus(todo.isCompleted) }}</p>
-        <button (click) = "openEditDialog()">Edit</button>
+        <button mat-button color="primary" (click) = "openEditDialog()">Edit</button>
+        <button mat-button color="primary" (click)="goBack()">Back</button>
     </div>
 </div>
 

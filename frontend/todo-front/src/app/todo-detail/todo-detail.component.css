@@ -33,4 +33,13 @@
     font-weight: bold;
     color: #ff0000;
   }
+
+  ::ng-deep .vertical-dialog {
+    mat-dialog-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
   
