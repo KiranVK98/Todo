@@ -3,6 +3,8 @@ import { Todo } from '../Itodo';
 import { ActivatedRoute } from '@angular/router';
 import { TodoService } from '../todo.service';
 import { DatePipe } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { TodoeditComponent } from '../todoedit/todoedit.component';
 
 @Component({
   selector: 'app-todo-detail',
@@ -20,7 +22,8 @@ export class TodoDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private todoService: TodoService,
-    private dataPipe: DatePipe
+    private dataPipe: DatePipe,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -64,6 +67,22 @@ export class TodoDetailComponent implements OnInit {
   toggleEditMode(): void {
     this.editMode = !this.editMode;
   }
+
+  openEditDialog() : void {
+    const dialogRef = this.dialog.open(TodoeditComponent, {
+      width : '500px',
+      data : {todo : this.todo}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        this.todo = result;
+        this.saveChanges();
+      }
+    })
+  }
+
+  
 
   saveChanges(): void {
     if (this.todo) {

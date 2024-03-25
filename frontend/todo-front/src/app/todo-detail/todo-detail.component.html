@@ -11,7 +11,7 @@
         <p>Description {{ todo.description }}</p>
         <p>Date: {{ formattedDueDate }}</p>
         <p>Completed : {{ getCompletedStatus(todo.isCompleted) }}</p>
-        <button (click) = "toggleEditMode()">Edit</button>
+        <button (click) = "openEditDialog()">Edit</button>
     </div>
 </div>
 
