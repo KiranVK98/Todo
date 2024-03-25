@@ -10,7 +10,7 @@ import { Approute } from './app/app-routing.module';
 import { AppComponent } from './app/app.component';
 import { TodoListComponent } from './app/todo-list/todo-list.component';
 import { TodoDetailComponent } from './app/todo-detail/todo-detail.component';
-
+import { TodoeditComponent } from './app/todoedit/todoedit.component';
 //import service
 import { TodoService } from './app/todo.service';
 import { CommonModule, DatePipe } from '@angular/common';
@@ -22,7 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { FormsModule } from '@angular/forms';
 
@@ -30,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     declarations: [
       AppComponent,
       TodoListComponent,
-      TodoDetailComponent
+      TodoDetailComponent,
+      TodoeditComponent
       // Add other components here (e.g., TodoDetailComponent)
     ],
     imports: [
@@ -45,7 +46,8 @@ import { FormsModule } from '@angular/forms';
       MatFormFieldModule,
       MatDatepickerModule,
       FormsModule,
-      MatNativeDateModule
+      MatNativeDateModule,
+      MatDialogModule
     ],
     providers: [
         TodoService, 
