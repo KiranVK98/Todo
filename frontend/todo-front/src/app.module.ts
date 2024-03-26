@@ -23,15 +23,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+
 
 import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from './app/navbar/navbar.component';
 
 @NgModule({
     declarations: [
       AppComponent,
       TodoListComponent,
       TodoDetailComponent,
-      TodoeditComponent
+      TodoeditComponent,
+      NavbarComponent
       // Add other components here (e.g., TodoDetailComponent)
     ],
     imports: [
@@ -47,7 +52,9 @@ import { FormsModule } from '@angular/forms';
       MatDatepickerModule,
       FormsModule,
       MatNativeDateModule,
-      MatDialogModule
+      MatDialogModule,
+      MatToolbarModule,
+      MatListModule
     ],
     providers: [
         TodoService, 
