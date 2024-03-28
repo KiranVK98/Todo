@@ -1,0 +1,25 @@
+/* todo-create.component.css */
+
+.form-container {
+    width: 50%;
+    margin: auto;
+  }
+  
+  .todo-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mat-form-field {
+    margin-bottom: 16px;
+  }
+  
+  textarea.mat-input-element {
+    min-height: 100px;
+  }
+  
+  .button-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
