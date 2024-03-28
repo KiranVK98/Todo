@@ -1,1 +1,27 @@
-<p>create-todo works!</p>
+<div class="container">
+    <h2>Create New Todo</h2>
+    <form (ngSubmit)="createTodo()">
+      <mat-form-field class="full-width">
+        <mat-label>Title</mat-label>
+        <input matInput [(ngModel)]="newTodo.title" name="title" required>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Description</mat-label>
+        <textarea matInput [(ngModel)]="newTodo.description" name="description" rows="4"></textarea>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Due Date</mat-label>
+        <input matInput [matDatepicker]="dueDatePicker" [(ngModel)]="newTodo.dueDate" name="dueDate" required>
+        <mat-datepicker-toggle matSuffix [for]="dueDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #dueDatePicker></mat-datepicker>
+      </mat-form-field>
+      <mat-checkbox class="full-width" [(ngModel)]="newTodo.isCompleted" name="completed">Completed</mat-checkbox>
+      <div class="button-row">
+        <button mat-raised-button color="primary" type="submit">Save</button>
+        <button mat-raised-button color="warn" type="button" (click)="cancel()">Cancel</button>
+      </div>
+    </form>
+    <div *ngIf="isLoading" class="loading-indicator">Loading...</div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  </div>
+  

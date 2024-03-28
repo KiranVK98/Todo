@@ -29,6 +29,7 @@ import { MatListModule } from '@angular/material/list';
 
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './app/navbar/navbar.component';
+import { CreateTodoComponent } from './app/create-todo/create-todo.component';
 
 @NgModule({
     declarations: [
@@ -36,7 +37,8 @@ import { NavbarComponent } from './app/navbar/navbar.component';
       TodoListComponent,
       TodoDetailComponent,
       TodoeditComponent,
-      NavbarComponent
+      NavbarComponent,
+      CreateTodoComponent
       // Add other components here (e.g., TodoDetailComponent)
     ],
     imports: [
