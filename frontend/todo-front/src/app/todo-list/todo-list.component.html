@@ -8,8 +8,8 @@
       <li *ngFor="let todo of todos">
         <span>{{ todo.title }}</span>
         <div class="button-container"> <!-- Add class for button container -->
-          <button (click)="onViewDetail(todo.id)">View Detail</button>
-          <button (click)="onDelete(todo.id)">Delete</button>
+          <button *ngIf="todo.id !== undefined" (click)="onViewDetail(todo.id)">View Detail</button>
+          <button *ngIf="todo.id !== undefined" (click)="onDelete(todo.id)">Delete</button>
         </div>
       </li>
     </ul>
